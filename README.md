@@ -1,4 +1,4 @@
-# Colors
+# [Colors](http://alizahid.github.io/colors/)
 
 A collection of color palettes I collect from here and there.
 
