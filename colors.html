@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Colors</title>
+		<style type="text/css">
+
+			* { margin: 0; padding: 0; }
+
+				body { cursor: default; font: 300 1em/1 'Helvetica Neue', 'Segoe UI', 'Arial', sans-serif; }
+
+					h1 { font-size: 3em; font-weight: 100; padding: 2rem 2rem 1rem 2rem; }
+
+					h2 { font-size: 2em; font-weight: 300; padding: 1rem; }
+
+						h2 a { color: #BDC3C7; font-size: 1rem; margin-left: 1rem; text-decoration: none; -webkit-transition: all 300ms ease; -moz-transition: all 300ms ease; -o-transition: all 300ms ease; transition: all 300ms ease; }
+
+							h2 a:hover { color: #95A5A6; }
+
+				section { display: block; overflow: hidden; padding: 1em; }
+
+					figure { background: #333; border-radius: 100%; color: #FFF; cursor: pointer; float: left; line-height: 8em; margin: 1rem; text-align: center; text-shadow: 0 0 2px #666; text-transform: uppercase; width: 8em; }
+
+		</style>
+		<script type="text/javascript">
+
+			var themes = [
+				{
+					name: 'Translateur',
+					link: 'https://translateur.co',
+					colors: 'd54400,949c27,367c86,3a9bc9,edb630,ee8360,367c86,ce4e92,a58162,8080b4,4d8300,9f0b35,633'.split(','),
+					added: new Date(2015, 2, 6),
+					addedBy: { name: 'Ali Zahid', link: 'http://alizahid.net' }
+				},
+				{
+					name: 'Grays',
+					colors: 'f6f7f8,ecf0f1,e6e9e9,bdc3c7'.split(','),
+					added: new Date(2014, 1, 13),
+					addedBy: { name: 'Ali Zahid', link: 'http://alizahid.net' }
+				},
+				{
+					name: 'Stacking Order',
+					colors: 'b377bf,8277bf,5081c2,54c3ac,a5c24d,e8953e,e74139'.split(','),
+					added: new Date(2014, 8, 30),
+					addedBy: { name: 'Ali Zahid', link: 'http://alizahid.net' }
+				},
+				{
+					name: 'Flat UI',
+					link: 'https://designmodo.github.io/Flat-UI',
+					colors: '1abc9c,16a085,2ecc71,27ae60,3498db,2980b9,9b59b6,8e44ad,34495e,2c3e50,f1c40f,f39c12,e67e22,d35400,e74c3c,c0392b,ecf0f1,bdc3c7,95a5a6,7f8c8d'.split(','),
+					added: new Date(2014, 3, 29),
+					addedBy: { name: 'Ali Zahid', link: 'http://alizahid.net' }
+				},
+				{
+					name: 'Origin of Common UI Symbols',
+					link: 'https://readymag.com/shuffle/ui-symbols/',
+					colors: '28a0a0,3a61e0,61523d,d37c39,8e8485,1e7c7f,228446,995d98,34495e'.split(','),
+					added: new Date(2014, 3, 28),
+					addedBy: { name: 'Ali Zahid', link: 'http://alizahid.net' }
+				},
+				{
+					name: 'Captain Icon',
+					link: 'http://mariodelvalle.github.io/CaptainIconWeb/',
+					colors: 'f6e5d0,e6c7b9,d3807b,c5e3c7,bfe1dd,8c4a62,594255,726873,bfb2a3,c0c0c0'.split(','),
+					added: new Date(2014, 4, 2),
+					addedBy: { name: 'Ali Zahid', link: 'http://alizahid.net' }
+				}
+			];
+
+			window.onload = function()
+			{
+				for (i in themes)
+				{
+					var theme = themes[i];
+
+					var section = document.createElement('section');
+
+					var heading = document.createElement('h2');
+						heading.textContent = theme.name;
+						heading.title = 'Added on ' + theme.added.toDateString();
+
+					if (theme.link)
+					{
+						var link = document.createElement('a');
+							link.href = theme.link;
+							link.textContent = 'link';
+							link.target = '_blank';
+
+						heading.appendChild(link);
+					}
+					
+					if (theme.addedBy)
+					{
+						var author = document.createElement('a');
+							author.href = theme.addedBy.link;
+							author.textContent = theme.addedBy.name.toLowerCase();
+							author.target = '_blank';
+
+						heading.appendChild(author);
+					}
+
+					section.appendChild(heading);
+
+					for (x in theme.colors)
+					{
+						var box = document.createElement('figure');
+							box.style.backgroundColor = '#' + theme.colors[x];
+							box.textContent = '#' + theme.colors[x];
+
+						box.onclick = function()
+						{
+							prompt('', this.textContent.toUpperCase());
+						};
+
+						section.appendChild(box);
+					}
+
+					document.body.appendChild(section);
+				}
+			};
+
+		</script>
+	</head>
+
+	<body>
+		<h1>Colors</h1>
+	</body>
+</html>
