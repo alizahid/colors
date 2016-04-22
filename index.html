@@ -2,6 +2,8 @@
 <html>
 
 <head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 	<title>Colors</title>
 	<style type="text/css">
 		*,
@@ -18,18 +20,29 @@
 		body {
 			cursor: default;
 			font: 300 1em/1 'Helvetica Neue', 'Segoe UI', 'Arial', sans-serif;
+			margin: 2em;
 		}
 
 		h1 {
 			font-size: 3em;
 			font-weight: 100;
-			padding: 2rem 2rem 1rem 2rem;
 		}
 
 		h2 {
+			display: inline-block;
 			font-size: 2em;
 			font-weight: 300;
-			padding: 1rem;
+			margin: 1em 0;
+			padding-top: 1em;
+			position: relative;
+		}
+
+		h2:before {
+			border-top: 1px solid #EEE;
+			content: '';
+			position: absolute;
+			top: 0;
+			width: 100%;
 		}
 
 		h2 a {
@@ -45,24 +58,50 @@
 			color: #95A5A6;
 		}
 
-		section {
-			display: block;
-			overflow: hidden;
-			padding: 1em;
+		figure {
+			cursor: pointer;
+			text-align: center;
+			text-transform: uppercase;
 		}
 
-		figure {
-			background: #333;
-			border-radius: 100%;
+		figure.black {
+			color: #333;
+		}
+
+		figure.white {
 			color: #FFF;
-			cursor: pointer;
-			float: left;
-			line-height: 8em;
-			margin: 1rem;
-			text-align: center;
-			text-shadow: 0 0 2px #666;
-			text-transform: uppercase;
-			width: 8em;
+		}
+
+		/* Responsive */
+
+		@media (max-width: 30em) {
+			figure {
+				padding: 2em;
+			}
+		}
+
+		@media (min-width: 30em) {
+			section {
+				display: -webkit-box;
+				display: -webkit-flex;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-flex-wrap: wrap;
+				-ms-flex-wrap: wrap;
+				flex-wrap: wrap;
+				margin: -1em 0 0 -1em;
+			}
+
+			figure {
+				background: #333;
+				border-radius: 100%;
+				-webkit-box-flex: 0;
+				-webkit-flex: 0 0 8em;
+				-ms-flex: 0 0 8em;
+				flex: 0 0 8em;
+				line-height: 8em;
+				margin: 1em 0 0 1em;
+			}
 		}
 	</style>
 	<script type="text/javascript">
@@ -157,22 +196,40 @@
 					heading.appendChild(author);
 				}
 
-				section.appendChild(heading);
+				document.body.appendChild(heading);
 
 				for (x in theme.colors) {
+					var color = theme.colors[x];
+
 					var box = document.createElement('figure');
-					box.style.backgroundColor = '#' + theme.colors[x];
-					box.textContent = '#' + theme.colors[x];
+					box.style.backgroundColor = '#' + color;
+					box.textContent = '#' + color;
 
 					box.onclick = function() {
 						prompt('Copy hex code', this.textContent.toUpperCase());
 					};
+
+					box.className = getTextColor(color);
 
 					section.appendChild(box);
 				}
 
 				document.body.appendChild(section);
 			}
+		};
+
+		var getTextColor = function(color) {
+			if (color.length === 3) {
+				color = color[0] + color[0] + color[1] + color[1] + color[2] + color[2];
+			}
+
+			var r = parseInt(color.substr(0, 2), 16),
+				g = parseInt(color.substr(2, 2), 16),
+				b = parseInt(color.substr(4, 2), 16);
+
+			var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000;
+
+			return (yiq >= 128) ? 'black' : 'white';
 		};
 	</script>
 </head>
