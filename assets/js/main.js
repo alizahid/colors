@@ -1,37 +1,45 @@
 window.onload = function() {
-    for (i in themes) {
-        var theme = themes[i]
+    var main = document.getElementsByTagName('main')[0]
 
+    themes.forEach(function(theme) {
         var section = document.createElement('section')
 
-        var heading = document.createElement('h2')
+        var header = document.createElement('h2')
+
+        var heading = document.createElement('span')
+
         heading.textContent = theme.name
         heading.title = 'Added on ' + theme.added.toDateString()
 
+        header.appendChild(heading)
+
         if (theme.link) {
             var link = document.createElement('a')
+
             link.href = theme.link
             link.textContent = 'link'
             link.target = '_blank'
 
-            heading.appendChild(link)
+            header.appendChild(link)
         }
 
         if (theme.addedBy) {
             var author = document.createElement('a')
+
             author.href = theme.addedBy.link
             author.textContent = theme.addedBy.name.toLowerCase()
             author.target = '_blank'
 
-            heading.appendChild(author)
+            header.appendChild(author)
         }
 
-        document.body.appendChild(heading)
+        main.appendChild(header)
 
         for (x in theme.colors) {
             var color = theme.colors[x]
 
             var box = document.createElement('figure')
+
             box.style.backgroundColor = '#' + color
             box.textContent = '#' + color
 
@@ -44,8 +52,8 @@ window.onload = function() {
             section.appendChild(box)
         }
 
-        document.body.appendChild(section)
-    }
+        main.appendChild(section)
+    })
 }
 
 var getTextColor = function(color) {

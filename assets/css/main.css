@@ -1,0 +1,159 @@
+*, *:before, *:after {
+    border-radius: 0;
+    box-sizing: border-box;
+    font-weight: normal;
+    margin: 0;
+    outline: none;
+    padding: 0;
+}
+
+body {
+    cursor: default;
+    font: normal 1em/1 -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+}
+
+a {
+    text-decoration: none;
+    transition: 300ms;
+}
+
+h1, h2 {
+    font-size: 1em;
+}
+
+
+/* Layout */
+
+header {
+    align-items: center;
+    border-bottom: 1px solid #F6F7F8;
+    display: flex;
+    justify-content: space-between;
+}
+
+h1 {
+    padding: 1em;
+}
+
+h1 small {
+    color: #999;
+    font-size: 1em;
+}
+
+nav {
+    display: flex;
+}
+
+nav a {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 1em auto;
+    filter: grayscale(100%);
+    height: 3em;
+    width: 3em;
+}
+
+nav a:active, nav a:hover {
+    filter: grayscale(0);
+}
+
+nav a.dribbble {
+    background-image: url('../img/dribbble.svg');
+}
+
+nav a.github {
+    background-image: url('../img/github.svg');
+}
+
+nav a.twitter {
+    background-image: url('../img/twitter.svg');
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+}
+
+h2 {
+    align-items: center;
+    align-self: flex-start;
+    background: #F6F7F8;
+    border-radius: 2em;
+    display: flex;
+    padding: 0.5em;
+}
+
+h2:first-of-type {
+    margin-bottom: 1em;
+}
+
+h2:not(:first-of-type) {
+    margin: 4em 0 1em 0;
+}
+
+h2 span {
+    padding: 0 0 0 0.5em
+}
+
+h2 a {
+    background: #FFF;
+    border-radius: 2em;
+    color: #BDC3C7;
+    font-size: 1em;
+    margin-left: 1em;
+    padding: 0.5em;
+}
+
+h2 a:hover {
+    color: #4BBEC6;
+}
+
+figure {
+    cursor: pointer;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 300ms;
+}
+
+figure:hover {
+    transform: scale3d(1.1, 1.1, 1.1);
+}
+
+figure.black {
+    color: #333;
+}
+
+figure.white {
+    color: #FFF;
+}
+
+
+/* Responsive */
+
+@media (max-width: 30em) {
+    figure {
+        padding: 2em;
+    }
+    figure:first-of-type {
+        border-radius: 0.25em 0.25em 0 0;
+    }
+    figure:last-of-type {
+        border-radius: 0 0 0.25em 0.25em;
+    }
+}
+
+@media (min-width: 30em) {
+    section {
+        display: flex;
+        flex-wrap: wrap;
+        margin: -1em 0 0 -1em;
+    }
+    figure {
+        background: #333;
+        border-radius: 100%;
+        flex: 0 0 8em;
+        line-height: 8em;
+        margin: 1em 0 0 1em;
+    }
+}
