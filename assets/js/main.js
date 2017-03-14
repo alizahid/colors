@@ -1,4 +1,34 @@
-window.onload = function() {
+(function() {
+    var getTextColor = function(color) {
+        if (color.length === 3) {
+            color = color[0] + color[0] + color[1] + color[1] + color[2] + color[2]
+        }
+
+        var r = parseInt(color.substr(0, 2), 16),
+            g = parseInt(color.substr(2, 2), 16),
+            b = parseInt(color.substr(4, 2), 16)
+
+        var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
+
+        return yiq >= 192 ? 'black' : 'white'
+    }
+
+    var addClass = function(node, name) {
+        node.className += ' ' + name
+    }
+
+    var removeClass = function(node, name) {
+        let classes = node.className.split(' ')
+
+        classes.forEach(function(className, index) {
+            if (className === name) {
+                classes.splice(index, 1)
+            }
+        })
+
+        node.className = classes.join(' ')
+    }
+
     var main = document.getElementsByTagName('main')[0]
 
     themes.forEach(function(theme) {
@@ -43,8 +73,21 @@ window.onload = function() {
             box.style.backgroundColor = '#' + color
             box.textContent = '#' + color
 
+            box.setAttribute('data-clipboard-text', box.textContent)
+
             box.onclick = function() {
-                prompt('Copy hex code', this.textContent.toUpperCase())
+                var node = this
+                var text = node.textContent
+
+                addClass(node, 'copied')
+
+                node.textContent = 'Copied!'
+
+                setTimeout(function() {
+                    removeClass(node, 'copied')
+
+                    node.textContent = text
+                }, 2000)
             }
 
             box.className = getTextColor(color)
@@ -54,20 +97,8 @@ window.onload = function() {
 
         main.appendChild(section)
     })
-}
+})()
 
-var getTextColor = function(color) {
-    if (color.length === 3) {
-        color = color[0] + color[0] + color[1] + color[1] + color[2] + color[2]
-    }
-
-    var r = parseInt(color.substr(0, 2), 16),
-        g = parseInt(color.substr(2, 2), 16),
-        b = parseInt(color.substr(4, 2), 16)
-
-    var yiq = ((r * 299) + (g * 587) + (b * 114)) / 1000
-
-    return yiq >= 192
-        ? 'black'
-        : 'white'
+window.onload = function() {
+    new Clipboard('figure')
 }

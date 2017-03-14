@@ -151,6 +151,10 @@ figure.white {
     color: #FFF;
 }
 
+figure.copied {
+	text-transform: none;
+}
+
 
 /* Responsive */
 
