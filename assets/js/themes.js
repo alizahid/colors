@@ -2,7 +2,7 @@ var themes = [
     {
 		name: 'Somewhere from Dribbble',
         link: 'https://dribbble.com/alizahid',
-        colors: 'FB5A5B,59565C,FCCF87,33ADC0,84D177,CC9367,DDE8E9,E8E8DC'.split(','),
+        colors: 'fb5a5b,59565c,fccf87,33adc0,84d177,cc9367,dde8e9,e8e8dc'.split(','),
         added: new Date(2017, 2, 27),
         addedBy: {
             name: 'Ali Zahid',
@@ -11,7 +11,7 @@ var themes = [
     }, {
 		name: 'Facebook Messenger',
         link: 'https://www.messenger.com',
-        colors: '1787FB,689ACA,31CEF3,4BBEC6,27CD2B,6AB76B,FDC22D,FD7E37,D3A88E,F73F51,E48687,FD5FA1,D597BA,764FFB,A696C5'.split(','),
+        colors: '1787fb,689aca,31cef3,4bbec6,27cd2b,6ab76b,fdc22d,fd7e37,d3a88e,f73f51,e48687,fd5fa1,d597ba,764ffb,a696c5'.split(','),
         added: new Date(2017, 1, 6),
         addedBy: {
             name: 'Ali Zahid',
@@ -20,7 +20,7 @@ var themes = [
     }, {
         name: 'iOS',
         link: 'https://developer.apple.com/ios/human-interface-guidelines/visual-design/color/',
-        colors: 'FF3B30,FF9500,FFCC00,4CD964,5AC8FA,007AFF,5856D6,FF2D55'.split(','),
+        colors: 'ff3b30,ff9500,ffcc00,4cd964,5ac8fa,007aff,5856d6,ff2d55'.split(','),
         added: new Date(2017, 1, 6),
         addedBy: {
             name: 'Ali Zahid',
@@ -29,7 +29,7 @@ var themes = [
     }, {
         name: 'SkyAdventures',
         link: 'https://dribbble.com/shots/2066288-SkyAdventures-Iconset-Palette',
-        colors: '0075FF,00B7D6,02D2B0,E79F00,FF7143'.split(','),
+        colors: '0075ff,00b7d6,02d2b0,e79f00,ff7143'.split(','),
         added: new Date(2016, 2, 6),
         addedBy: {
             name: 'Ali Zahid',
