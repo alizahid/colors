@@ -1,5 +1,14 @@
 var themes = [
     {
+		name: 'Drop',
+        link: 'http://dropcolorpicker.com',
+        colors: 'f0665b,f0665b,51c97f,59e5c5,4bbde8,417cf9,6190b8,9777d8'.split(','),
+        added: new Date(2017, 2, 28),
+        addedBy: {
+            name: 'Ali Zahid',
+            link: 'http://alizahid.net'
+        }
+    }, {
 		name: 'Somewhere from Dribbble',
         link: 'https://dribbble.com/alizahid',
         colors: 'fb5a5b,59565c,fccf87,33adc0,84d177,cc9367,dde8e9,e8e8dc'.split(','),
