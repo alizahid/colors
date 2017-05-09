@@ -77,16 +77,13 @@
 
             box.onclick = function() {
                 var node = this
-                var text = node.textContent
 
-                addClass(node, 'copied')
+                clearTimeout(node.timer)
 
-                node.textContent = 'Copied!'
+                node.textContent = 'Copied'
 
-                setTimeout(function() {
-                    removeClass(node, 'copied')
-
-                    node.textContent = text
+                node.timer = setTimeout(function() {
+                    node.textContent = '#' + color
                 }, 2000)
             }
 

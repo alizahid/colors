@@ -133,7 +133,7 @@ h2 a:hover {
 figure {
     cursor: pointer;
     text-align: center;
-    text-transform: uppercase;
+    text-transform: lowercase;
     -webkit-transition: 300ms;
     transition: 300ms;
 }
@@ -149,10 +149,6 @@ figure.black {
 
 figure.white {
     color: #FFF;
-}
-
-figure.copied {
-	text-transform: none;
 }
 
 
